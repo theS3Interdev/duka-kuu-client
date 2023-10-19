@@ -5,7 +5,14 @@ import { Container } from "@/components/misc/container";
 import { HeroSection, ProductList } from "@/components/index";
 
 const HomePage = async () => {
-  const hero = await getHeroSection("clnnao02g0002pew2ccfvjbsu");
+  let sectionId!: string;
+
+  /* change api endpoint depending on environment */
+  process.env.NODE_ENV === "production"
+    ? (sectionId = process.env.NEXT_PUBLIC_HERO_IMAGE_ID_PRD!)
+    : (sectionId = process.env.NEXT_PUBLIC_HERO_IMAGE_ID_DEV!);
+
+  const hero = await getHeroSection(sectionId!);
 
   const products = await getProducts({ isFeatured: true });
 
