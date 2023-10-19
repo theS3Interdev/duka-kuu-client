@@ -8,7 +8,9 @@ process.env.NODE_ENV === "production"
   : (endPoint = `${process.env.NEXT_PUBLIC_API_URL_DEV}/heroes`);
 
 export const getHeroSection = async (id: string): Promise<Hero> => {
-  const response = await fetch(`${endPoint}/${id}`);
+  const response = await fetch(`${endPoint}/${id}`, {
+    next: { revalidate: 8 },
+  });
 
   return response.json();
 };

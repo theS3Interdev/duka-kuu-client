@@ -27,7 +27,7 @@ export const getProducts = async (query: Query): Promise<Product[]> => {
     },
   });
 
-  const response = await fetch(url);
+  const response = await fetch(url, { next: { revalidate: 8 } });
 
   return response.json();
 };
