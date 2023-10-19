@@ -8,7 +8,7 @@ process.env.NODE_ENV === "production"
   : (endPoint = `${process.env.NEXT_PUBLIC_API_URL_DEV}/categories`);
 
 export const getCategories = async (): Promise<Category[]> => {
-  const response = await fetch(`${endPoint}`);
+  const response = await fetch(`${endPoint}`, { next: { revalidate: 8 } });
 
   return response.json();
 };
