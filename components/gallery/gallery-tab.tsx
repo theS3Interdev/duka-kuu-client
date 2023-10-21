@@ -16,9 +16,9 @@ export const GalleryTab = ({ image }: GalleryTabProps) => {
           <span className="absolute inset-0 aspect-square h-full w-full overflow-hidden rounded-lg">
             <NextImage
               src={image.url}
-              alt=""
+              alt="Product Image"
               fill
-              sizes="(max-width: 480px) 50vw, (max-width: 728px) 33vw (max-width: 976px) 25vw, 100vw"
+              sizes="100vw"
               priority
               quality={89}
               className="object-cover object-center"
@@ -28,7 +28,7 @@ export const GalleryTab = ({ image }: GalleryTabProps) => {
           <span
             className={cn(
               "absolute inset-0 rounded-md ring-2 ring-offset-2",
-              selected ? "ring-black" : "ring-transparent",
+              selected ? "ring-accent-foreground" : "ring-accent",
             )}
           />
         </div>
