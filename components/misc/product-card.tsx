@@ -1,24 +1,35 @@
 "use client";
 
+import { MouseEventHandler } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Expand, ShoppingCart } from "lucide-react";
 
+import { Product } from "@/lib/utils/types";
+
+import { usePreviewModal } from "@/lib/hooks/use-preview-modal";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Currency } from "@/components/misc/currency";
-
-import { Product } from "@/lib/utils/types";
 
 type ProductCardProps = {
   data: Product;
 };
 
 export const ProductCard = ({ data }: ProductCardProps) => {
+  const previewModal = usePreviewModal();
+
   const router = useRouter();
 
   const handleClick = () => {
     router.push(`/product/${data?.id}`);
+  };
+
+  const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.stopPropagation();
+
+    previewModal.onOpen(data);
   };
 
   return (
@@ -40,7 +51,7 @@ export const ProductCard = ({ data }: ProductCardProps) => {
           />
           <div className="absolute bottom-5 w-full px-6 opacity-0 transition group-hover:opacity-100">
             <div className="flex justify-center gap-x-6">
-              <Button variant="outline" size="icon" onClick={() => {}}>
+              <Button variant="outline" size="icon" onClick={onPreview}>
                 <Expand className="h-4 w-4" />
               </Button>
 

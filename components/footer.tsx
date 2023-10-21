@@ -9,9 +9,7 @@ export const Footer = () => {
             &copy; {currentYear} Superior Software Solutions. All rights
             reserved.
           </p>
-          <p>
-            Powered by <span className="font-montserrat">Duka Kuu</span>
-          </p>
+          <p>Powered by Duka Kuu</p>
         </div>
       </div>
     </footer>
