@@ -30,7 +30,7 @@ export const Gallery = ({ images = [] }: GalleryProps) => {
                 src={image.url}
                 alt="Image"
                 fill
-                sizes="(max-width: 480px) 50vw, (max-width: 728px) 33vw (max-width: 976px) 25vw, 100vw"
+                sizes="100vw"
                 priority
                 quality={89}
                 className="object-cover object-center"
