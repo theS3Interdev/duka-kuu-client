@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Children) => {
   return (
     <html lang="en">
-      <body className="scroll-smooth font-montserrat antialiased">
+      <body className="scroll-smooth font-opensans antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
