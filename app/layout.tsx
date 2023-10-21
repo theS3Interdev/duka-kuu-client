@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 
+import { ModalProvider } from "@/lib/providers/modal-provider";
 import { ThemeProvider } from "@/lib/providers/theme-provider";
 import { ToastProvider } from "@/lib/providers/toast-provider";
 
@@ -33,6 +34,7 @@ const RootLayout = ({ children }: Children) => {
           enableSystem
           disableTransitionOnChange
         >
+          <ModalProvider />
           <ToastProvider />
           <NavigationBar />
           {children}
